@@ -7,6 +7,9 @@ import { MainNavbarComponent } from './components/main-navbar/main-navbar.compon
 import { MainUserInfoComponent } from './components/main-user-info/main-user-info.component';
 import { SideListFeatureComponent } from './components/side-list-feature/side-list-feature.component';
 import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -17,10 +20,14 @@ import { TransactionHistoryComponent } from './components/transaction-history/tr
     TransactionHistoryComponent
   ],
   imports: [
+    MatIconModule,
+    MatToolbarModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
