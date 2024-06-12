@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\New folder\\OnlBank_b\\OnlBank_b.csproj": {}
+    "C:\\Users\\Tieu Bao\\Desktop\\BankingOnline\\Online-Banking\\OnlBank_b\\OnlBank_b.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\New folder\\OnlBank_b\\OnlBank_b.csproj": {
+    "C:\\Users\\Tieu Bao\\Desktop\\BankingOnline\\Online-Banking\\OnlBank_b\\OnlBank_b.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\New folder\\OnlBank_b\\OnlBank_b.csproj",
+        "projectUniqueName": "C:\\Users\\Tieu Bao\\Desktop\\BankingOnline\\Online-Banking\\OnlBank_b\\OnlBank_b.csproj",
         "projectName": "OnlBank_b",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\New folder\\OnlBank_b\\OnlBank_b.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\New folder\\OnlBank_b\\obj\\",
+        "projectPath": "C:\\Users\\Tieu Bao\\Desktop\\BankingOnline\\Online-Banking\\OnlBank_b\\OnlBank_b.csproj",
+        "packagesPath": "C:\\Users\\Tieu Bao\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tieu Bao\\Desktop\\BankingOnline\\Online-Banking\\OnlBank_b\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Tieu Bao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -46,6 +43,22 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.*, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.*, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.*, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -71,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
