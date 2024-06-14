@@ -1,0 +1,14 @@
+mat-card{
+    margin: 0 10px;
+    width: 20%;
+    color: white;
+    height: 84%;
+    background-color: #046E8F;
+    position: fixed;
+    top: 110px;
+    box-shadow: 0 2px 10px 0 #266d86;
+    padding: 0 10px;
+}
+a{
+    width: 100%;
+}

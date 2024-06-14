@@ -9,7 +9,13 @@ import { SideListFeatureComponent } from './components/side-list-feature/side-li
 import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +26,11 @@ import { MatIconModule } from '@angular/material/icon'
     TransactionHistoryComponent
   ],
   imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatListModule,
+    MatSidenavModule,
+    MatTreeModule,
     MatIconModule,
     MatToolbarModule,
     BrowserModule,
