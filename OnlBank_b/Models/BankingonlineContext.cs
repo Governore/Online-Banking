@@ -22,8 +22,6 @@ public partial class BankingonlineContext : DbContext
 
     public virtual DbSet<Adminrole> Adminroles { get; set; }
 
-    public virtual DbSet<Admintransaction> Admintransactions { get; set; }
-
     public virtual DbSet<Helprequest> Helprequests { get; set; }
 
     public virtual DbSet<Otp> Otps { get; set; }
@@ -100,41 +98,6 @@ public partial class BankingonlineContext : DbContext
 
             entity.Property(e => e.RoleId).HasColumnType("int(11)");
             entity.Property(e => e.RoleName).HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<Admintransaction>(entity =>
-        {
-            entity.HasKey(e => e.AdminTransactionId).HasName("PRIMARY");
-
-            entity.ToTable("admintransactions");
-
-            entity.HasIndex(e => e.AccountId, "AccountId");
-
-            entity.HasIndex(e => e.AdminId, "AdminId");
-
-            entity.HasIndex(e => e.UserId, "UserId");
-
-            entity.Property(e => e.AdminTransactionId).HasColumnType("int(11)");
-            entity.Property(e => e.AccountId).HasColumnType("int(11)");
-            entity.Property(e => e.AdminId).HasColumnType("int(11)");
-            entity.Property(e => e.Amount).HasPrecision(15, 2);
-            entity.Property(e => e.TransactionDate)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("datetime");
-            entity.Property(e => e.TransactionType).HasMaxLength(50);
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
-
-            entity.HasOne(d => d.Account).WithMany(p => p.Admintransactions)
-                .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("admintransactions_ibfk_3");
-
-            entity.HasOne(d => d.Admin).WithMany(p => p.Admintransactions)
-                .HasForeignKey(d => d.AdminId)
-                .HasConstraintName("admintransactions_ibfk_1");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Admintransactions)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("admintransactions_ibfk_2");
         });
 
         modelBuilder.Entity<Helprequest>(entity =>
@@ -219,17 +182,31 @@ public partial class BankingonlineContext : DbContext
 
             entity.HasIndex(e => e.AccountId, "AccountId");
 
+            entity.HasIndex(e => e.AdminId, "AdminId");
+
+            entity.HasIndex(e => e.UserId, "UserId");
+
             entity.Property(e => e.TransactionId).HasColumnType("int(11)");
             entity.Property(e => e.AccountId).HasColumnType("int(11)");
+            entity.Property(e => e.AdminId).HasColumnType("int(11)");
             entity.Property(e => e.Amount).HasPrecision(15, 2);
             entity.Property(e => e.TransactionDate)
                 .HasDefaultValueSql("current_timestamp()")
                 .HasColumnType("datetime");
             entity.Property(e => e.TransactionType).HasMaxLength(50);
+            entity.Property(e => e.UserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Account).WithMany(p => p.Transactions)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("transactions_ibfk_1");
+                .HasConstraintName("admintransactions_ibfk_3");
+
+            entity.HasOne(d => d.Admin).WithMany(p => p.Transactions)
+                .HasForeignKey(d => d.AdminId)
+                .HasConstraintName("admintransactions_ibfk_1");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Transactions)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("admintransactions_ibfk_2");
         });
 
         modelBuilder.Entity<Transfertransaction>(entity =>

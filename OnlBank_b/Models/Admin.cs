@@ -13,7 +13,7 @@ public partial class Admin
 
     public int? RoleId { get; set; }
 
-    public virtual ICollection<Admintransaction> Admintransactions { get; set; } = new List<Admintransaction>();
-
     public virtual Adminrole? Role { get; set; }
+
+    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }

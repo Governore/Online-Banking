@@ -13,8 +13,6 @@ public partial class Account
 
     public decimal? Balance { get; set; }
 
-    public virtual ICollection<Admintransaction> Admintransactions { get; set; } = new List<Admintransaction>();
-
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 
     public virtual ICollection<Transfertransaction> TransfertransactionFromAccounts { get; set; } = new List<Transfertransaction>();

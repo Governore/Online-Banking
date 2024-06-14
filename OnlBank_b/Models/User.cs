@@ -21,11 +21,11 @@ public partial class User
 
     public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
 
-    public virtual ICollection<Admintransaction> Admintransactions { get; set; } = new List<Admintransaction>();
-
     public virtual ICollection<Helprequest> Helprequests { get; set; } = new List<Helprequest>();
 
     public virtual ICollection<Otp> Otps { get; set; } = new List<Otp>();
 
     public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
+
+    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }
