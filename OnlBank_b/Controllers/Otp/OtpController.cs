@@ -32,12 +32,42 @@ namespace OnlBank_b.Controllers.Otp
             return Ok(new { otpCode, expiryDate });
         }
 
+<<<<<<< Updated upstream
         private string generateRandomOtp(int number)
         {
             Random random = new Random();
             int min = (int)Math.Pow(10, number - 1);
             int max = (int)Math.Pow(10, number) - 1;
 
+=======
+        [HttpGet]
+        public IActionResult GetOTP(string otpcode, int id)
+        {
+            // var code = _context.Otps.FirstOrDefault(e => e.UserId == id && e.Otpcode == otpcode);
+            var code = _context.Otps.FirstOrDefault(e =>  e.Otpcode == otpcode);
+
+            if (code == null)
+            {
+                return NotFound("OTP not found for the user");
+            }
+
+            var currentTime = DateTime.Now;
+            var timeDifference = currentTime - code.ExpiryDate;
+            if (timeDifference.TotalMinutes > 5)
+            {
+                return BadRequest("Mã OTP đã quá hạn, mời bạn gửi lại mã");
+            }
+
+            return Ok(code);
+        }
+
+        private string generateRandomOtp(int number)
+        {
+            Random random = new Random();
+            int min = (int)Math.Pow(10, number - 1);
+            int max = (int)Math.Pow(10, number) - 1;
+
+>>>>>>> Stashed changes
             return random.Next(min, max).ToString();
         }
     }
