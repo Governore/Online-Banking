@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlBank_b")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b51d3170762050958583043ea661a51e5bffbae4")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3f49512300b5f7469a7412d55ac046f658953ac")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlBank_b")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlBank_b")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

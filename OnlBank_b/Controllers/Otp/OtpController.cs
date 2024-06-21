@@ -32,14 +32,15 @@ namespace OnlBank_b.Controllers.Otp
             return Ok(new { otpCode, expiryDate });
         }
 
-<<<<<<< Updated upstream
+
         private string generateRandomOtp(int number)
         {
             Random random = new Random();
             int min = (int)Math.Pow(10, number - 1);
             int max = (int)Math.Pow(10, number) - 1;
+            return random.Next(min, max).ToString();
+        }
 
-=======
         [HttpGet]
         public IActionResult GetOTP(string otpcode, int id)
         {
@@ -61,14 +62,7 @@ namespace OnlBank_b.Controllers.Otp
             return Ok(code);
         }
 
-        private string generateRandomOtp(int number)
-        {
-            Random random = new Random();
-            int min = (int)Math.Pow(10, number - 1);
-            int max = (int)Math.Pow(10, number) - 1;
 
->>>>>>> Stashed changes
-            return random.Next(min, max).ToString();
-        }
+        
     }
 }

@@ -11,7 +11,7 @@ public partial class Otp
 
     public string Otpcode { get; set; } = null!;
 
-    public DateTime ExpiryDate { get; set; } 
+    public DateTime CreateTime { get; set; } 
 
     public virtual User? User { get; set; }
 }
