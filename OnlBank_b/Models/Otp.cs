@@ -11,7 +11,11 @@ public partial class Otp
 
     public string Otpcode { get; set; } = null!;
 
+<<<<<<< HEAD
     public DateTime ExpiryDate { get; set; }
+=======
+    public DateTime CreateTime { get; set; } 
+>>>>>>> TieuBao
 
     public virtual User? User { get; set; }
 }
