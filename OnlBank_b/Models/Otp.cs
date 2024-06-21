@@ -13,5 +13,7 @@ public partial class Otp
 
     public DateTime ExpiryDate { get; set; }
 
+    public DateTime CreateTime { get; set; }
+
     public virtual User? User { get; set; }
 }
