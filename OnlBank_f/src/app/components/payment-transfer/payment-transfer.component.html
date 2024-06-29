@@ -1,0 +1,56 @@
+<h1><STRONG>Payment Transfer</STRONG></h1>
+<h5>Faste and easy to transfer your money with just simple act</h5>
+<div style="border-bottom: 1px dotted rgb(13, 135, 162); margin-top: 30px; margin-bottom: -10px;"></div>
+<br>
+<form>
+  <div class="form-group">
+    <div>
+      <h4><b>Transfer Details</b></h4>
+      <h6>Enter detail for the recipient</h6>
+    </div>
+    <div style="padding: 10px; border-radius: 25px; border: 3px solid rgb(13, 135, 162)">
+      <div>
+        <div>
+          <h5>Select Source Bank</h5>
+          <p>Select the bank account you want to transfer from</p> 
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <h5>Transfer Note </h5>
+        <p>Write something for the other person</p>
+        <textarea class="form-control" id="cmt" style="width: 100%;"></textarea>
+      </div>
+    </div>
+    <div>
+      <h4><b>Bank Account Details</b></h4>
+      <h6>Enter the bank account details for the recipient</h6>
+    </div>
+    <div style="padding: 10px; border-radius: 25px; border: 3px solid rgb(13, 135, 162)">
+      <div>
+        <h5>Recipient's Email Address</h5>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        </div>
+      </div>
+      <div>
+        <h5>Recipient's Account Number</h5>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div>
+        <h5>Amount</h5>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="$.00">
+        </div>
+      </div>
+    </div>
+    <input type="submit" class="form-control" style="margin: 30px 0; background-color: rgb(13, 135, 162); color: white; border: 2px solid cyan">
+  </div>
+</form>
+
+<router-outlet></router-outlet>

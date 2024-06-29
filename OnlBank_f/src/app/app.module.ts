@@ -16,7 +16,27 @@ import { LoginAdminFormComponent } from './components/login-admin-form/login-adm
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
 import { CoverComponent } from './components/cover/cover.component';
-
+import { MainAdminPageComponent } from './components/main-admin-page/main-admin-page.component';
+import { MainAdminNavigationComponent } from './components/main-admin-navigation/main-admin-navigation.component';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
+import { CustomerTransactionRequestComponent } from './components/customer-transaction-request/customer-transaction-request.component';
+import { CustomerHelpRequestComponent } from './components/customer-help-request/customer-help-request.component';
+import { CustomerRevenueComponent } from './components/customer-revenue/customer-revenue.component';
+import { CustomerAccountManagementComponent } from './components/customer-account-management/customer-account-management.component';
+import { AccountManagementComponent } from './components/account-management/account-management.component';
+import { StaffManagerAccountManagementComponent } from './components/staff-manager-account-management/staff-manager-account-management.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { BankAccountComponent } from './components/bank-account/bank-account.component';
+import { PaymentTransferComponent } from './components/payment-transfer/payment-transfer.component';
+import { HistoryComponent } from './components/history/history.component';
+import { AddBankAccountComponent } from './components/add-bank-account/add-bank-account.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HomeSectionComponent } from './components/home-section/home-section.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { CustomerProfileComponent } from './components/customer-profile/customer-profile.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -26,10 +46,31 @@ import { CoverComponent } from './components/cover/cover.component';
     LoginAdminFormComponent,
     MainPageComponent,
     MainNavigationComponent,
-    CoverComponent
+    CoverComponent,
+    MainAdminPageComponent,
+    MainAdminNavigationComponent,
+    AdminProfileComponent,
+    CustomerTransactionRequestComponent,
+    CustomerHelpRequestComponent,
+    CustomerRevenueComponent,
+    CustomerAccountManagementComponent,
+    AccountManagementComponent,
+    StaffManagerAccountManagementComponent,
+    BankAccountComponent,
+    PaymentTransferComponent,
+    HistoryComponent,
+    AddBankAccountComponent,
+    DashboardComponent,
+    HomeSectionComponent,
+    ContactUsComponent,
+    CustomerProfileComponent
   ],
   imports: [
+    MatFormFieldModule,
+    MatStepperModule,
+    MatPaginatorModule,
     MatCardModule,
+    MatTabsModule,
     MatButtonModule,
     MatListModule,
     MatSidenavModule,

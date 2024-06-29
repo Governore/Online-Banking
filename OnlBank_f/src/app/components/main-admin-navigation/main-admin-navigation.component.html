@@ -1,0 +1,95 @@
+  <!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <div class="ophy">
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0e5e98; box-shadow: 2px 0 5px 0 black">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#customer-collapse" aria-expanded="true">
+                Customer
+              </button>
+              <div class="collapse show" id="customer-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" style="align-items: center;">
+                  <li><a href="#" class="link-dark">Transaction Request</a></li>
+                  <li><a href="#" class="link-dark">Help Request</a></li>
+                  <li><a href="#" class="link-dark">Revenue</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#staff-collapse" aria-expanded="false">
+                Manager/Staff
+              </button>
+              <div class="collapse" id="staff-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark">Customer Transaction Request</a></li>
+                  <li><a href="#" class="link-dark">Customer Help Request</a></li>
+                  <li><a href="#" class="link-dark">Customer Revenue</a></li>
+                  <li><a href="#" class="link-dark">Customer Account Management</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#ceo-collapse" aria-expanded="false">
+                CEO
+              </button>
+              <div class="collapse" id="ceo-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark">Customer Transaction Request</a></li>
+                  <li><a href="#" class="link-dark">Customer Help Request</a></li>
+                  <li><a href="#" class="link-dark">Customer Revenue</a></li>
+                  <li><a href="#" class="link-dark">Customer Account Management</a></li>
+                  <li><a href="#" class="link-dark">Staff Account Management</a></li>
+                  <li><a href="#" class="link-dark">Account Management</a></li>
+
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-3"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                Account
+              </button>
+              <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a routerLink="admin_profile" class="link-dark">Profile</a></li>
+                  <li><a href="#" class="link-dark">Sign out</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light  fixed-top" style="background-color: #2f8bb2; box-shadow: 0 2px 5px 0 black">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+
+      <!-- Brand -->
+      <a class="navbar-brand">
+        <strong>SAFENET</strong>
+      </a>
+      <!-- <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div> -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->  
+
+<router-outlet></router-outlet>
