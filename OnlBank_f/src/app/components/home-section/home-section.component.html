@@ -7,7 +7,7 @@
           <div class="container">
             <!-- <h5 class="card-title">My Bank : {{total number of bank account }}</h5> -->
             <h5 class="card-title">My Bank : <h6>3 Bank accounts</h6></h5>
-            <a href="#" class="link"> + Add Account</a>
+            <a href="/customer/bank_account" class="link"> + Add Account</a>
           </div>
           <br>
         <h3>Total Current Balance</h3>
@@ -32,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dt of paginatedData">
+        <tr *ngFor="let dt of data">
         <th scope="row">{{dt.id}}</th>
         <td>{{dt.username}}</td>
         <td>{{dt.accname}}</td>
@@ -41,13 +41,4 @@
         <td>{{dt.date}}</td>
     </tbody>
 </table>
-<mat-paginator #paginator
-               class="demo-paginator"
-               (page)="OnPageChange($event)"
-               [length]="this.data.length"
-               [pageSize]="10"
-               [showFirstLastButtons]="true"
-               [pageSizeOptions]= "[5, 10, 25, 100]"
-               [pageIndex]="1"
-               aria-label="Select page">
-</mat-paginator>
+<router-outlet></router-outlet>

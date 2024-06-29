@@ -1,0 +1,59 @@
+<h1><STRONG>Transaction History</STRONG></h1>
+<h5>Review all your money went </h5>
+<br>
+<!-- card.component.html -->
+<div class="container">
+    <div class="row">
+      <div *ngFor="let item of items; let i = index" class="col-12">
+        <div class="card mb-3 rounded">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h5 class="card-title">{{ item.title }}</h5>
+                <h6 class="card-subtitle mb-2">ID: {{ item.id }}</h6>
+              </div>
+              <div class="text-end">
+                <h6 class="card-subtitle mb-2">Balance: {{ item.balance | currency }}</h6>
+              </div>
+            </div>
+            <div class="mt-4">
+              <span>Created Date: {{ item.date }}</span>
+              <p class="card-text mt-2">Number: {{ item.number }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+  <table class="table">
+    <thead class="thead-light">
+        <tr>
+        <th scope="col">Transaction Id</th>
+        <th scope="col">User's Name</th>
+        <th scope="col">Account Number</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dt of paginatedData">
+        <th scope="row">{{dt.id}}</th>
+        <td>{{dt.username}}</td>
+        <td>{{dt.accname}}</td>
+        <td>{{dt.amount}}</td>
+        <td>{{dt.trantype}}</td>
+        <td>{{dt.date}}</td>
+    </tbody>
+</table>
+<mat-paginator #paginator
+              class="demo-paginator"
+              (page)="OnPageChange($event)"
+              [length]="this.data.length"
+              [pageSize]="10"
+              [showFirstLastButtons]="true"
+              [pageSizeOptions]= "[5, 10, 25, 100]"
+              [pageIndex]="1"
+              aria-label="Select page">
+</mat-paginator>

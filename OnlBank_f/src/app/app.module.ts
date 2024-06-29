@@ -37,6 +37,7 @@ import { CustomerProfileComponent } from './components/customer-profile/customer
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CustomerProfileComponent
   ],
   imports: [
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatStepperModule,
     MatPaginatorModule,
