@@ -38,6 +38,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TestTableRowSelectedComponent } from './testcomponents/test-table-row-selected/test-table-row-selected.component';
 
 @NgModule({
   declarations: [
@@ -64,9 +66,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     HomeSectionComponent,
     ContactUsComponent,
-    CustomerProfileComponent
+    CustomerProfileComponent,
+    TestTableRowSelectedComponent
   ],
   imports: [
+    BsDropdownModule.forRoot(),
     ReactiveFormsModule,
     MatFormFieldModule,
     MatStepperModule,

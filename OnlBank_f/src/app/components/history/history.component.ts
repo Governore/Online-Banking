@@ -73,4 +73,10 @@ export class HistoryComponent implements OnInit {
     updatePaginatedData(startIndex: number, endIndex: number) {
       this.paginatedData = this.data.slice(startIndex, endIndex);
     }
+
+    selectedRow: any = null;
+  
+    onSelectRow(row: any) {
+      this.selectedRow = row;
+    }
   }
