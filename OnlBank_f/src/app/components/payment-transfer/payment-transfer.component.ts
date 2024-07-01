@@ -1,45 +1,75 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { ApiService } from '../../services/api.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-payment-transfer',
   templateUrl: './payment-transfer.component.html',
-  styleUrl: './payment-transfer.component.css'
+  styleUrls: ['./payment-transfer.component.css']
 })
-export class PaymentTransferComponent {
+export class PaymentTransferComponent implements OnInit {
+  username: string | null;
+  allAccount: any[] = [];
+  fullName: string | null = null;
+  transferForm!: FormGroup;
 
-    account = [
-      {"number": 681471112710},
-      {"number": 419475030294},
-      {"number": 746154802813}
-    ]
+  constructor(private api: ApiService, private toast: NgToastService) {
+    this.username = this.api.getUsernameFromToken();
+    this.transferForm = new FormGroup({
+      fromAccount: new FormControl("", [Validators.required]),
+      toAccount: new FormControl("", [Validators.required]),
+      amount: new FormControl("", [Validators.required]),
+      transferDate: new FormControl(new Date().toISOString(), [Validators.required]),
+      status: new FormControl("Pending", [Validators.required])
+    });
+  }
 
-    userForm: FormGroup;
+  ngOnInit(): void {
+    this.loadAllAccount();
+  }
 
-    userObj: any = {
-      accountnumber: '',
-      comment: '',
-      email: '',
-      bankaccount: '',
-      amount: '',
-      isAgree: false
-    }
+  loadAllAccount(): void {
+    this.api.getAccountByUsername(this.username!).subscribe({
+      next: (account) => {
+        this.allAccount = account;
+      },
+      error: (error) => {
+        console.error('Error', error);
+      }
+    });
+  }
 
-    constructor(){
-      this.userForm = new FormGroup({
-        accountnumber: new FormControl("",[Validators.required]),
-        comment: new FormControl("",[Validators.required]),
-        email: new FormControl("",[Validators.required,Validators.email]),
-        bankaccount: new FormControl("",Validators.required),
-        amount: new FormControl("",Validators.required)
+  getFullName(): void {
+    const accountNumber = this.transferForm.get('toAccount')?.value;
+    if (accountNumber) {
+      this.api.getSearchAccount(accountNumber).subscribe({
+        next: (response) => {
+          this.fullName = response.fullName;
+        },
+        error: (error) => {
+          console.error('Error fetching account', error);
+          this.fullName = null;
+        }
       });
     }
+  }
 
-    onSubmit(): void {
-      if (this.userForm.valid) {
-        // handle form submission
-        console.log(this.userForm.value);
-      }
+  onTransfer(): void {
+    if (this.transferForm.valid) {
+      const formData = this.transferForm.value;
+      this.api.transfer(formData).subscribe({
+        next: (response) => {
+          console.log('Data successfully posted to the database', response);
+          this.toast.success(response.message,"SUCCESS", 5000);
+          this.transferForm.reset();
+        },
+        error: (error) => {
+          console.error('Error posting data to the database', error);
+        }
+      });
+    } else {
+      console.log('Form is invalid');
     }
+  }
 }

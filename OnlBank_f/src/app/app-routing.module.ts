@@ -6,12 +6,14 @@ import { CoverComponent } from './components/cover/cover.component';
 import { LoginAdminFormComponent } from './components/login-admin-form/login-admin-form.component';
 import { MainAdminPageComponent } from './components/main-admin-page/main-admin-page.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { authUserGuard } from './guards/user/auth-user.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: CoverComponent
   },
+  
   {
     path: 'register',
     component: RegisterFormComponent
@@ -27,7 +29,12 @@ const routes: Routes = [
   {
     path: 'customer',
     component: MainPageComponent,
+    canActivate:[authUserGuard],
     children: [
+      {
+        path: '',
+        loadChildren: () => import('./components/home-section/home-section.module').then(c => c.HomeSectionModule)
+      },
       {
         path: 'home',
         loadChildren: () => import('./components/home-section/home-section.module').then(c => c.HomeSectionModule)

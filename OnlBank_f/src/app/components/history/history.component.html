@@ -1,59 +1,40 @@
-<h1><STRONG>Transaction History</STRONG></h1>
-<h5>Review all your money went </h5>
+<h1>
+    <STRONG>Transfer Transaction History</STRONG>
+</h1>
 <br>
-<!-- card.component.html -->
-<div class="container">
-    <div class="row">
-      <div *ngFor="let item of items; let i = index" class="col-12">
-        <div class="card mb-3 rounded">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h5 class="card-title">{{ item.title }}</h5>
-                <h6 class="card-subtitle mb-2">ID: {{ item.id }}</h6>
-              </div>
-              <div class="text-end">
-                <h6 class="card-subtitle mb-2">Balance: {{ item.balance | currency }}</h6>
-              </div>
-            </div>
-            <div class="mt-4">
-              <span>Created Date: {{ item.date }}</span>
-              <p class="card-text mt-2">Number: {{ item.number }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<br>
-  <table class="table">
+<div class="input-group mb-3">
+    <h5>Select Account </h5>
+
+    <select class="form-select" aria-label="Chọn tài khoản" [(ngModel)]="accountNumber" (ngModelChange)="loadHistoryTransfer()">
+      <option disabled selected>Select Account</option>
+      <option *ngFor="let account of allAccount" [value]="account.accountNumber">{{ account.accountNumber }}</option>
+    </select>
+</div>
+
+<h1>List History</h1>
+<table class="table">
     <thead class="thead-light">
         <tr>
-        <th scope="col">Transaction Id</th>
-        <th scope="col">User's Name</th>
-        <th scope="col">Account Number</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Transaction Type</th>
-        <th scope="col">Date</th>
+            <th scope="col">From Account</th>
+            <th scope="col">To Account</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date At</th>
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let dt of paginatedData">
-        <th scope="row">{{dt.id}}</th>
-        <td>{{dt.username}}</td>
-        <td>{{dt.accname}}</td>
-        <td>{{dt.amount}}</td>
-        <td>{{dt.trantype}}</td>
-        <td>{{dt.date}}</td>
+    <tbody *ngIf="paginatedDataTransfer.length > 0">
+        <tr *ngFor="let dt of paginatedDataTransfer">
+            <td>{{dt.fromAccountNumber}}</td>
+            <td>{{dt.toAccountNumber}}</td>
+            <td>{{dt.amount}}</td>
+            <td>{{dt.transactionType}}</td>
+            <td>{{dt.transactionDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+        </tr>
     </tbody>
 </table>
-<mat-paginator #paginator
-              class="demo-paginator"
-              (page)="OnPageChange($event)"
-              [length]="this.data.length"
-              [pageSize]="10"
-              [showFirstLastButtons]="true"
-              [pageSizeOptions]= "[5, 10, 25, 100]"
-              [pageIndex]="1"
-              aria-label="Select page">
+<div *ngIf="paginatedDataTransfer.length === 0">
+    <span>Không tìm thấy lịch sử giao dịch.</span>
+</div>
+
+<mat-paginator #paginator class="demo-paginator" (page)="onPageChange($event)" [length]="historyTransfer.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]="true">
 </mat-paginator>

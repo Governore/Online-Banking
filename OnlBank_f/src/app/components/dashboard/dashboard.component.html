@@ -1,53 +1,64 @@
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Transaction Reports Review</h1>
-    <p class="mb-4">Check your monthly and yearly report of all your bank account in just a few click, super fast and convinient data ready for you !</p>
-
-    <!-- Content Row -->
+<div class="container p-0">
+    <h1 class="h3 mb-3">Settings</h1>
     <div class="row">
+        <div class="col-md-5 col-xl-4">
 
-        <div class="col-xl-8 col-lg-7">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Profile Settings</h5>
+                </div>
 
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="myAreaChart" width="692" height="200" style="display: block; height: 160px; width: 554px;" class="chartjs-render-monitor"></canvas>
-                    </div>
-                </div>
-            </div>
+                <div class="list-group list-group-flush" role="tablist">
 
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-bar"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="myBarChart" width="692" height="200" style="display: block; height: 160px; width: 554px;" class="chartjs-render-monitor"></canvas>
-                    </div>
+                    <a class="list-group-item list-group-item-action" href="#password">
+                      Changed Password
+                    </a>
+
                 </div>
             </div>
-
         </div>
 
-        <!-- Donut Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-pie pt-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="myPieChart" width="692" height="270" style="display: block; height: 216px; width: 554px;" class="chartjs-render-monitor"></canvas>
+        <div class="col-md-7 col-xl-8">
+            <div class="tab-content">
+
+                <div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Password</h5>
+
+                            <form [formGroup]="changedPass" (ngSubmit)="onClick()">
+                                <div class="form-group">
+                                    <label for="inputPasswordCurrent">Current password</label>
+                                    <input formControlName="passwordCurrent" type="password" class="form-control" id="inputPasswordCurrent">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew">New password</label>
+                                    <input formControlName="passwordNew" type="password" class="form-control" id="inputPasswordNew">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew2">Verify password</label>
+                                    <input formControlName="passwordVerify" type="password" class="form-control" id="inputPasswordNew2">
+                                </div>
+                                <!-- <br>
+                                <div class="form-control d-flex justify-content-between align-items-center">
+
+                                    <label for="inputPasswordNew2">OTP Code</label>
+                                    <input type="password" class="form-control mx-2" id="inputPasswordNew2">
+
+                                    <button type="submit" class="btn btn-primary">Send Otp</button>
+                                </div> -->
+                                <!-- <br> -->
+
+                                <br>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>

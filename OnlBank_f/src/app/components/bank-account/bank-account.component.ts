@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-bank-account',
@@ -6,21 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './bank-account.component.css'
 })
 export class BankAccountComponent implements OnInit {
-  items = [
-    {"id":1,"title":"Gan Loadwick","number":320781455803,"date":"6/22/2024"},
-    {"id":2,"title":"Luella Rapelli","number":105719892857,"date":"3/8/2024"},
-    {"id":3,"title":"Connie McQuorkel","number":403276603294,"date":"11/9/2023"},
-    {"id":4,"title":"Elysia Works","number":313118521643,"date":"1/27/2024"},
-    {"id":5,"title":"Towney Berceros","number":776002606817,"date":"4/20/2024"},
-    {"id":6,"title":"Michael Denniss","number":742321049191,"date":"4/18/2024"},
-    { "id": 7, "title": 'Card 1', "number": 320252455803, "date": '2024-06-29' },
-    { "id": 8, "title": 'Card 2', "number": 245245262403, "date": '2024-06-28' },
-  ];
+  fullname: string | null;
+  username: string | null;
+  allAccount: any[] = [];
+  constructor(private api:ApiService)
+  {
+    this.fullname = this.api.getFullNameFromToken();
+    this.username = this.api.getUsernameFromToken();
+  }
 
   colors: string[] = [];
 
   ngOnInit(): void {
-    this.colors = this.items.map(() => this.getRandomColor());
+    // this.colors = this.allAccount.map(() => this.getRandomColor());
+    this.loadAllAccount();
   }
 
   getRandomColor(): string {
@@ -30,5 +30,16 @@ export class BankAccountComponent implements OnInit {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  }
+
+  loadAllAccount(): void {
+    this.api.getAccountByUsername(this.username!).subscribe({
+      next: (account) => {
+        this.allAccount = account; 
+      },
+      error: (error) => {
+        console.error('error', error);
+      }
+    });
   }
 }

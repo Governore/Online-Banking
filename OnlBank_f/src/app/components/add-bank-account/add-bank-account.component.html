@@ -2,40 +2,18 @@
 <h5>Easy to create new card to save your money</h5>
 <div class="container-fluid h-custom">
     <div class="col-md-8 ">
-        <form>
-        <div class="box">
-            <h2 style="margin: 50px 0 10px">
-                <strong>SIGN IN</strong>
-            </h2>
-            <h6>We need this step just for security</h6>
-        </div>
+        <form [formGroup]="createForm" (ngSubmit)="onCreate()">
+            <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0"></p>
+            </div>
+            <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="iEmail">Account Number</label>
+                <input type="email" id="iEmail" class="form-control form-control-lg" formControlName="accountNumber" placeholder="Enter a valid account number" />
+            </div>
 
-        <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0"></p>
-        </div>
-
-        <!-- Email input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-            <label class="form-label" for="iEmail">Email address</label>
-            <input type="email" id="iEmail" class="form-control form-control-lg"
-            placeholder="Enter a valid email address or username" />
-            
-        </div>
-
-        <!-- Password input -->
-        <div data-mdb-input-init class="form-outline mb-3">
-            <label class="form-label" for="iPass">Password</label>
-            <input type="password" id="iPass" class="form-control form-control-lg"
-            placeholder="Enter password" />
-            
-        </div>
-        <!-- Button Login  -->
-        <div class="text-center text-lg-start mt-4 pt-2">
-            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-            style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <!-- <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-            style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> -->
-        </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Create Account Number</button>
+            </div>
         </form>
     </div>
 </div>
