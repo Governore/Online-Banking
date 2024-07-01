@@ -38,9 +38,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgToastModule } from 'ng-angular-popup';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/user/token-user.interceptor';
+import { NgToastModule } from 'ng-angular-popup';
+import { TooltipComponent } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { TokenInterceptor } from './interceptors/user/token-user.interceptor';
     DashboardComponent,
     HomeSectionComponent,
     ContactUsComponent,
-    CustomerProfileComponent
+    CustomerProfileComponent,
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -86,7 +88,8 @@ import { TokenInterceptor } from './interceptors/user/token-user.interceptor';
     AppRoutingModule,
     FormsModule,
     NgToastModule,
-    HttpClientModule
+    HttpClientModule,
+    TooltipComponent
   ],
   providers: [
     provideAnimationsAsync(),

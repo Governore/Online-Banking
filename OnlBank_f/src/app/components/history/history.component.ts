@@ -50,6 +50,7 @@ export class HistoryComponent implements OnInit {
       error: (error) => {
         console.error('Lỗi khi tải tài khoản', error);
       }
+
     });
   }
 
@@ -67,3 +68,4 @@ export class HistoryComponent implements OnInit {
 
 
 }
+

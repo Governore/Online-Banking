@@ -29,7 +29,7 @@ export class HomeSectionComponent implements OnInit {
   }
 
   loadHistory(): void {
-    this.api.getHistoryTrans().subscribe({
+    this.api.getHistoryTrans(this.username!).subscribe({
       next: (history) => {
         this.history = history;
         this.updatePaginatedDataTransfer();

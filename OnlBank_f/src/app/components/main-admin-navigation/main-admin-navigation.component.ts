@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './main-admin-navigation.component.css'
 })
 export class MainAdminNavigationComponent {
-
+  profileImageUrl = './assets/img/bank.png';
 }

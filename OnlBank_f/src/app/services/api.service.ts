@@ -38,9 +38,9 @@ export class ApiService {
     return localStorage.getItem('token');
   }
 
-  getHistoryTrans()
+  getHistoryTrans(data: string): Observable<any>
   {
-    return this.http.get<any>(`${this.baseUrl}Transaction/transactionhistory`);
+    return this.http.get<any>(`${this.baseUrl}Transaction/transactionhistory?username=${data}`);
   }
   getHistoryTransfer(accountnumber: string): Observable<any>
   {
